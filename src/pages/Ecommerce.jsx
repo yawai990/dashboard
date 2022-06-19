@@ -6,6 +6,9 @@ import { earningData,SparklineAreaData,ecomPieChatDat } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Ecommerce = () => {
+
+  const {currentColor}=useStateContext();
+
   return (
     <div className="mt-12">
     <div className="flex  justify-center flex-wrap lg:flex-nowrap">
@@ -19,7 +22,7 @@ const Ecommerce = () => {
         </div>
 
     <div className="mt-6">
-      <Button color='white' bgColor='blue' size='md' text='download' borderRadius='10px' />
+      <Button color='white' bgColor={currentColor} size='md' text='download' borderRadius='10px' />
     </div>
        </div>
    
@@ -61,7 +64,7 @@ const Ecommerce = () => {
                 </div>
 
                 {/* start of chart */}
-                <div className="flex justify-center mt-10 gap-10 flex-wrap ">
+                <div className="flex justify-center mt-10 gap-10 flex-wrap">
                   <div className="border-r-1 border-color m-4 pr-10">
                     <div>
                       <p>
@@ -80,21 +83,21 @@ const Ecommerce = () => {
 
                     {/* sparkLine chart */}
                     <div className="mt-5">
-                      <SparkLine currentColor='blue'
+                      <SparkLine currentColor={currentColor}
                                           id='sparkline'
                                           width='250px' height='80px'
-                                          color='blue' type='Line'
+                                          color={currentColor} type='Line'
                       data={SparklineAreaData} />
                     </div>
                     <div className="mt-10">
-                      <Button color='white' bgColor='blue'
+                      <Button color='white' bgColor={currentColor}
                                     size='sm' borderRadius='10px'
                                     text='Download Report' />
                     </div>
                   </div>
 
-                  <div>
-                    <Stacked/>
+                  <div className='mt-5'>
+                    <Stacked />
                   </div>
                 </div>
 

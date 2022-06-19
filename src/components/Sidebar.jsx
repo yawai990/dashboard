@@ -8,9 +8,9 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Sidebar = () => {
-  const {activeMenu,setactiveMenu,screenSize, setscreenSize} = useStateContext();
+  const {activeMenu,setactiveMenu,screenSize, currentColor,setscreenSize} = useStateContext();
    
-  const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
+  const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
 
   const handleCloseSideBar=()=>{
@@ -18,7 +18,6 @@ const Sidebar = () => {
       setactiveMenu(false)
     }
   };
-
   return (
     <div className='h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10'>
       {activeMenu && (
@@ -42,6 +41,7 @@ const Sidebar = () => {
               {link.links.map(pageLink=>(
                 <NavLink to={`/${pageLink.name}`} key={pageLink.name} 
                 onClick={handleCloseSideBar}
+                style={({isActive})=>({backgroundColor:isActive ? currentColor: ''})}
                 className={({isActive})=> isActive ? activeLink : normalLink}>
                   <span>{pageLink.icon}</span>
                   <span className='capitalize'>{pageLink.name}</span>
