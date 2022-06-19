@@ -269,7 +269,7 @@ export const barCustomSeries = [
       dataLabel: {
         visible: true,
         position: 'Top',
-        font: { fontWeight: '600', color: '#ffffff' },
+        font: { fontWeight: '600', color: '#fff' },
       },
     },
   },
