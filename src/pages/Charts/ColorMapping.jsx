@@ -1,5 +1,6 @@
 import React from 'react';
-import { ChartComponent,SeriesCollectionDirective,Inject,SeriesDirective,MultiColoredAreaSeries,Tooltip,Legend, Category, DataLabel } from '@syncfusion/ej2-react-charts';
+import {BiBarChartAlt2} from 'react-icons/bi';
+import { ChartComponent,SeriesCollectionDirective,Inject,SeriesDirective,ColumnSeries,Tooltip,Legend, Category, DataLabel } from '@syncfusion/ej2-react-charts';
 import {colorMappingData,ColorMappingPrimaryXAxis,ColorMappingPrimaryYAxis,rangeColorMapping } from '../../data/dummy';
 import { Header } from '../../components';
 
@@ -12,18 +13,23 @@ const ColorMapping = () => {
       <ChartComponent id='charts' primaryXAxis={ColorMappingPrimaryXAxis}
        primaryYAxis={ColorMappingPrimaryYAxis}
        tooltip={{enable:true}}
+       chartArea={{border:{width:0}}}
+       title="US-CLIMATE WEATHER BY MONTH"
       >
-      <Inject services={[MultiColoredAreaSeries, Legend, Tooltip, DataLabel, Category]}/>
+      <Inject services={[ColumnSeries, Legend, Tooltip, DataLabel, Category]}/>
       <SeriesCollectionDirective>
-      
-      {colorMappingData[0].map((data,ind)=>{
-        
-        return <SeriesDirective key={ind} dataSource={data} xName='x' yName='y' type='MultiColoredArea'> 
-        </SeriesDirective>
-      })}
+          {colorMappingData.map((data,ind)=>(
+                        <SeriesDirective key={ind} dataSource ={data} xName='x' yName='y' name={rangeColorMapping.map(data=>data.label)} type='Column' columnWidth={10} columnSpacing={0.7} fill={rangeColorMapping.map(data=>data.colors)} />
+          ))}
+          {/* {rangeColorMapping.map(name=>{
+         
+               {colorMappingData.map((data,ind)=>(
+                        <SeriesDirective key={ind} dataSource ={data} xName='x' yName='y' name={name.label} type='Column' columnWidth={10} columnSpacing={0.7} fill={name.colors} />
+          ))}             
+          })}  */}
     </SeriesCollectionDirective>
-    </ChartComponent>;
-
+    </ChartComponent>
+        
     </div>
   )
 }
