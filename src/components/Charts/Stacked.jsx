@@ -4,7 +4,7 @@ import {
   Legend, Category, StackingColumnSeries, Tooltip,SeriesCollectionDirective, SeriesDirective} from '@syncfusion/ej2-react-charts';
 import { stackedCustomSeries,stackedPrimaryXAxis,stackedPrimaryYAxis } from '../../data/dummy';
 
-const Stacked = () => {
+const Stacked = ({mode}) => {
   return (
     <ChartComponent id='charts' 
     width='400px' height='300px'
@@ -13,6 +13,7 @@ const Stacked = () => {
     chartArea={{border:{width:0}}} 
     tooltip={{enable:true}}
     legendSettings={{background:'white'}}
+    background={mode === 'dark' && '#33373E'}
     >
         <Inject services={[StackingColumnSeries,Tooltip,Legend,Category]} />
         <SeriesCollectionDirective>

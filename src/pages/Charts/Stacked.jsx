@@ -14,6 +14,7 @@ const Stacked = () => {
 
       <ChartComponent id='area-charts' primaryXAxis={stackedPrimaryXAxis} primaryYAxis={stackedPrimaryYAxis}
                                     tooltip={{enable:true}}  chartArea={{border:{width:0}}}
+                                    legendSettings={{background:'white'}}
                                     background={currentMode === 'dark' ? '#33373e' : '#f4f4f4'}
 
       >
@@ -36,4 +37,4 @@ const Stacked = () => {
 )
 }
 
-export default Stacked
+export default Stacked;

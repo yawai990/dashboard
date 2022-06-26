@@ -16,6 +16,8 @@ const App=()=>{
         <div className={currentMode === "dark" ? 'dark':''}>
             <BrowserRouter>
                 <div className="flex relative dark:bg-main-dark-bg"> 
+
+                {/* theme setting icon */}
                     <div className="fixed right-4 bottom-4" style={{zIndex:'1000'}}>
                     
                         <TooltipComponent content="Settings" position='top'>
@@ -26,6 +28,7 @@ const App=()=>{
                             </button>
                         </TooltipComponent>
                     </div>
+                    
                     {activeMenu ? (
                         <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
                             <Sidebar/>

@@ -7,7 +7,7 @@ import { useStateContext } from '../contexts/ContextProvider';
 
 const Ecommerce = () => {
 
-  const {currentColor}=useStateContext();
+  const {currentColor,currentMode}=useStateContext();
 
   return (
     <div className="mt-12">
@@ -97,7 +97,7 @@ const Ecommerce = () => {
                   </div>
 
                   <div className='mt-5'>
-                    <Stacked />
+                    <Stacked mode={currentMode} />
                   </div>
                 </div>
 

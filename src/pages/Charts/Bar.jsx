@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChartComponent,SeriesCollectionDirective,Inject,BarSeries,SeriesDirective,Column,Tooltip,DateTime, Legend, Category, DataLabel, Border } from '@syncfusion/ej2-react-charts';
+import { ChartComponent,SeriesCollectionDirective,Inject,BarSeries,SeriesDirective,Tooltip, Legend, Category, DataLabel } from '@syncfusion/ej2-react-charts';
 import {barPrimaryXAxis,barPrimaryYAxis,barCustomSeries } from '../../data/dummy';
 import { Header } from '../../components';
 import { useStateContext } from '../../contexts/ContextProvider';
@@ -15,6 +15,7 @@ const Bar = () => {
       <ChartComponent id='bar-charts'
        primaryXAxis={barPrimaryXAxis} primaryYAxis={barPrimaryYAxis} title="Most Medal Top 3 Countries"
       tooltip={{enable:true}} chartArea={{border:{width:0}}} 
+      legendSettings={{background:'white'}}
       background={currentMode === 'dark' ? '#33373e' : '#f4f4f4'}
        >
 

@@ -14,6 +14,7 @@ const Area = () => {
   
         <ChartComponent id='area-charts' primaryXAxis={areaPrimaryXAxis} primaryYAxis={areaPrimaryYAxis}
                                       tooltip={{enable:true}}  chartArea={{border:{width:0}}}
+                                      legendSettings={{background:'white'}}
                                       background={currentMode === 'dark' ? '#33373e' : '#f4f4f4'}
         >
                 <Inject services={[SplineAreaSeries,DateTime,Legend,Tooltip]} />

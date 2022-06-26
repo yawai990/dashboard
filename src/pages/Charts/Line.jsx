@@ -6,7 +6,7 @@ import { useStateContext } from '../../contexts/ContextProvider';
 
 const Line = () => {
 
-  const {currentMode} = useStateContext();
+  const {currentMode,currentColor} = useStateContext();
 
   return (
     <div className='m-2 p-2 md:m-10 md:p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg'>
@@ -14,6 +14,7 @@ const Line = () => {
 
       <ChartComponent id='charts' primaryXAxis={LinePrimaryXAxis} primaryYAxis={LinePrimaryYAxis}
                                     tooltip={{enable:true}}  chartArea={{border:{width:0}}}
+                                    legendSettings={{background:'white'}}
                                     background={currentMode === 'dark' ? '#33373e' : '#f4f4f4'}
       >
               <Inject services={[LineSeries,DateTime,Legend,Tooltip]} />

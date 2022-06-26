@@ -42,6 +42,7 @@ export const ContextProvider=({children})=>{
     }
 
     const handleClick=(text)=>(
+
         setisClicked({...initialState,[text]:true})
  )
 
